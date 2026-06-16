@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 --line numbers
@@ -38,3 +39,9 @@ vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Toggle file tr
 vim.keymap.set("n", "<leader>m", ":lua MiniFiles.open()<CR>", {desc = "Mini files"})
 
 require("lazy").setup("plugins")
+
+--transparent background
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+
